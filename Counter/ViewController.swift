@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         titleLabel.text = "Значение счётчика:"
         counterLabel.text = "0"
+        historyText.isEditable = false
         historyText.text = "История изменений:\n"
     }
     
