@@ -49,9 +49,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func minusButtonTouch(_ sender: Any) {
-        counter = counter <= 0 ? 0 : counter - 1
-        changeCountText()
-        addHistoryMsg("Значение изменено на -1")
+        if counter <= 0 {
+            addHistoryMsg("попытка уменьшить значение счётчика ниже 0")
+        } else {
+            counter -= 1
+            changeCountText()
+            addHistoryMsg("Значение изменено на -1")
+        }
     }
     
     @IBAction func resetButtonTouch(_ sender: Any) {
