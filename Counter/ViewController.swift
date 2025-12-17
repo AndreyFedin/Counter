@@ -8,13 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var historyText: UITextView!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var counterLabel: UILabel!
+    @IBOutlet weak private var historyTextView: UITextView!
     
-    @IBOutlet weak var plusButton: UIButton!
-    @IBOutlet weak var minusButton: UIButton!
-    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak private var plusButton: UIButton!
+    @IBOutlet weak private var minusButton: UIButton!
+    @IBOutlet weak private var resetButton: UIButton!
     
     private var counter: Int = 0
     
@@ -22,8 +22,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         titleLabel.text = "Значение счётчика:"
         counterLabel.text = "0"
-        historyText.isEditable = false
-        historyText.text = "История изменений:\n"
+        historyTextView.isEditable = false
+        historyTextView.text = "История изменений:\n"
     }
     
     private func addHistoryMsg(_ message: String) {
@@ -32,24 +32,24 @@ class ViewController: UIViewController {
         let dateString = dateFormatter.string(from: Date())
         
         let stringToAdd = dateString + " " + message + "\n"
-        let oldText = historyText.text ?? ""
-        historyText.text = oldText + stringToAdd
+        let oldText = historyTextView.text ?? ""
+        historyTextView.text = oldText + stringToAdd
         
-        let range = NSMakeRange(historyText.text.count - 1, 1)
-        historyText.scrollRangeToVisible(range)
+        let range = NSMakeRange(historyTextView.text.count - 1, 1)
+        historyTextView.scrollRangeToVisible(range)
     }
     
     private func changeCountText() {
         counterLabel.text = String(counter)
     }
     
-    @IBAction func plusButtonTouch(_ sender: Any) {
+    @IBAction private func plusButtonTouch(_ sender: Any) {
         counter += 1
         changeCountText()
         addHistoryMsg("Значение изменено на +1")
     }
     
-    @IBAction func minusButtonTouch(_ sender: Any) {
+    @IBAction private func minusButtonTouch(_ sender: Any) {
         if counter <= 0 {
             addHistoryMsg("попытка уменьшить значение счётчика ниже 0")
         } else {
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func resetButtonTouch(_ sender: Any) {
+    @IBAction private func resetButtonTouch(_ sender: Any) {
         counter = 0
         changeCountText()
         addHistoryMsg("Значение сброшено")

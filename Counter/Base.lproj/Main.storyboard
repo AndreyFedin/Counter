@@ -102,7 +102,7 @@
                     </view>
                     <connections>
                         <outlet property="counterLabel" destination="3BB-Mw-TwY" id="PSn-aT-TLL"/>
-                        <outlet property="historyText" destination="9GL-Tk-CKz" id="g9f-r0-WHZ"/>
+                        <outlet property="historyTextView" destination="9GL-Tk-CKz" id="g9f-r0-WHZ"/>
                         <outlet property="minusButton" destination="4YR-H9-J01" id="mDX-Ea-PBU"/>
                         <outlet property="plusButton" destination="oOu-yg-K5O" id="P2m-mF-xgs"/>
                         <outlet property="resetButton" destination="jk5-Ar-gFg" id="8Ct-wW-dfA"/>
